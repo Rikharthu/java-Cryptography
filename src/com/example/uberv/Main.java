@@ -35,6 +35,7 @@ public class Main {
         // now try encrypting with the larger key
         c.init(Cipher.ENCRYPT_MODE, key192);
         c.doFinal(data);
+        System.out.println(data);
         System.out.println("192 bit test: passed");
 
         System.out.println("Tests completed");
@@ -44,6 +45,10 @@ public class Main {
 
         // Try to get BouncyCastle provider
         Provider bouncyCastle = findProvider("BC");
+        // get a cipher from a specified provider:
+        Cipher someCipher = Cipher.getInstance("Blowfish/ECB/NoPadding", bouncyCastle);
+
+        int a = 4;
     }
 
     public static void printProviders() {
